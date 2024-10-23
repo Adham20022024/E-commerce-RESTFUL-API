@@ -1,0 +1,1866 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "E-commerce-RESTful-API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://ecommerceapi-ten.vercel.app/"
+    },
+    {
+      "url": "http://localhost:8000"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "noauthAuth": {
+        "type": "http",
+        "scheme": "noauth"
+      },
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Categories"
+    },
+    {
+      "name": "Brands"
+    },
+    {
+      "name": "Users(Admin)"
+    },
+    {
+      "name": "subCategories"
+    },
+    {
+      "name": "categories/Subs"
+    },
+    {
+      "name": "products"
+    },
+    {
+      "name": "Authentication"
+    },
+    {
+      "name": "Logged User"
+    },
+    {
+      "name": "Reviews"
+    },
+    {
+      "name": "WishList"
+    },
+    {
+      "name": "Addresses"
+    },
+    {
+      "name": "Coupons"
+    },
+    {
+      "name": "Products/Reviews"
+    },
+    {
+      "name": "Cart"
+    },
+    {
+      "name": "Orders"
+    }
+  ],
+  "paths": {
+    "/api/v1/categories": {
+      "get": {
+        "tags": [
+          "Categories"
+        ],
+        "summary": "getCategories",
+        "parameters": [
+          {
+            "name": "_vercel_jwt",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIya0JZSUNHc1lYdmh6RXhZQk9XUzRqQXQiLCJpYXQiOjE3Mjk2NDEwMjcsIm93bmVySWQiOiJ0ZWFtX1NJMjM3UGNPOFk5M1BDZlpVcGppOFRucyIsImF1ZCI6ImUtY29tbWVyY2UtcmVzdC1mdWwtOWdyZnl5Mm8wLWFkaGFtcy1wcm9qZWN0cy1hYWJmZGVmNi52ZXJjZWwuYXBwIiwidXNlcm5hbWUiOiJhZGhhbTIwMDIyMDI0Iiwic3ViIjoic3NvLXByb3RlY3Rpb24ifQ.LbRHCT3rf4-GHGoggFjVvnczHNfCcQ_VvNAad9opdms"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/categories/66f03101c1b7a8fdee9be66b": {
+      "get": {
+        "tags": [
+          "Categories"
+        ],
+        "summary": "getCategory",
+        "security": [
+          {
+            "noauthAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Categories"
+        ],
+        "summary": "updateCategory",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "adham"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/categories/": {
+      "post": {
+        "tags": [
+          "Categories"
+        ],
+        "summary": "createCategory",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "new_AAIE332411124471"
+                  },
+                  "image": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/categories/66d5fd2de8b79539a190a0c8": {
+      "delete": {
+        "tags": [
+          "Categories"
+        ],
+        "summary": "deleteCategory",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/brands": {
+      "get": {
+        "tags": [
+          "Brands"
+        ],
+        "summary": "Get List of Brands",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/brands/66e71e127014e2b579119b45": {
+      "get": {
+        "tags": [
+          "Brands"
+        ],
+        "summary": "Get Specific Brand",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/brands/": {
+      "post": {
+        "tags": [
+          "Brands"
+        ],
+        "summary": "Create Brand",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "lol111"
+                  },
+                  "image": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/brands/66f036671fffd0f6d65a1d58": {
+      "put": {
+        "tags": [
+          "Brands"
+        ],
+        "summary": "Update Specific Brand",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "adham sdfsdfdsf"
+                  },
+                  "image": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/brands/66d9ac36a323087d7bbcd62f": {
+      "delete": {
+        "tags": [
+          "Brands"
+        ],
+        "summary": "deleteCategory",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users": {
+      "get": {
+        "tags": [
+          "Users(Admin)"
+        ],
+        "summary": "Get List of Users",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Users(Admin)"
+        ],
+        "summary": "Create User",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "adham"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "a44dha1m@gmail.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "adham2002"
+                  },
+                  "phone": {
+                    "type": "integer",
+                    "example": "01145148552"
+                  },
+                  "role": {
+                    "type": "string",
+                    "example": "admin"
+                  },
+                  "profileImg": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "confirmPassword": {
+                    "type": "string",
+                    "example": "adham2002"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/67019d515d4d3d07e28038ac": {
+      "get": {
+        "tags": [
+          "Users(Admin)"
+        ],
+        "summary": "Get Specific User",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/670c1a59cdd70e7d355568c1": {
+      "put": {
+        "tags": [
+          "Users(Admin)"
+        ],
+        "summary": "Update Specific User",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "Adham Ashraf"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "adham2002@gmail.com"
+                  },
+                  "profileImg": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "role": {
+                    "type": "string",
+                    "example": "user"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/changepassword/67088847a05699adc4dd3b8c": {
+      "put": {
+        "tags": [
+          "Users(Admin)"
+        ],
+        "summary": "Change User Password",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "currentPassword": "adham2002",
+                  "password": "adham2002",
+                  "passwordConfirm": "adham2002"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/67019e715d4d3d07e28038bf": {
+      "delete": {
+        "tags": [
+          "Users(Admin)"
+        ],
+        "summary": "Delete User",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/products": {
+      "get": {
+        "tags": [
+          "products"
+        ],
+        "summary": "Get List of products",
+        "security": [
+          {
+            "noauthAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "Bearer CLOJKTF6kysdQKW2cWbPoDuk"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "10"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "products"
+        ],
+        "summary": "Create Product",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "example": "product"
+                  },
+                  "price": {
+                    "type": "integer",
+                    "example": "11111"
+                  },
+                  "quantity": {
+                    "type": "integer",
+                    "example": "11"
+                  },
+                  "category": {
+                    "type": "string",
+                    "example": "66fcbab9fb90b3d9a6fa8cee"
+                  },
+                  "description": {
+                    "type": "string",
+                    "example": "this is a good product"
+                  },
+                  "imageCover": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "images": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/subcategories/66d8725f23e31ad45a0e1bfd": {
+      "get": {
+        "tags": [
+          "subCategories"
+        ],
+        "summary": "getSubcategory",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/subcategories/": {
+      "post": {
+        "tags": [
+          "subCategories"
+        ],
+        "summary": "createSubcategory",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "name": "Lenvo",
+                  "category": "66d4a343ba49f2e6a5752449"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/subcategories/66d86c9760a8d7068425759b": {
+      "put": {
+        "tags": [
+          "subCategories"
+        ],
+        "summary": "updateSubcategory",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "name": "Dell"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "subCategories"
+        ],
+        "summary": "deleteSubcategory",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/categories/66d5f29ce3cf1164e4c193ce/subcategories": {
+      "get": {
+        "tags": [
+          "categories/Subs"
+        ],
+        "summary": "Get List of SubCatgories For Category",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "categories/Subs"
+        ],
+        "summary": "Create subcategory on Category",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "name": "sometshing4"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/products/66def32151e816be5bdbea26": {
+      "get": {
+        "tags": [
+          "products"
+        ],
+        "summary": "Get Specific Product",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/products/66daecf4b3001f5b6099e042": {
+      "put": {
+        "tags": [
+          "products"
+        ],
+        "summary": "Update Specific Product",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "quantity": 20,
+                  "subcategories": [
+                    "66d4a343ba49f2e6a5752441"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/products/66daecd8b3001f5b6099e03d": {
+      "delete": {
+        "tags": [
+          "products"
+        ],
+        "summary": "delete Product",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/signup": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "SignUp",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "name": "mohamed",
+                  "email": "adham@gmail.com",
+                  "password": "adham2002",
+                  "confirmPassword": "adham2002"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/login": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "login",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "email": "adham2002@gmail.com",
+                  "password": "adham2002"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/forgetpassword": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Forgot Password",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "email": "adham54732@gmail.com"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/verifyResetCode": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Verify Reset Password Code",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "resetCode": "186232"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/resetpassword": {
+      "put": {
+        "tags": [
+          "Authentication"
+        ],
+        "summary": "Reset Password",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "email": "adham54732@gmail.com",
+                  "password": "adham2002"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/getMe": {
+      "get": {
+        "tags": [
+          "Logged User"
+        ],
+        "summary": "Get Logged User Data",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/changemypassword": {
+      "put": {
+        "tags": [
+          "Logged User"
+        ],
+        "summary": "Update Logged User Password",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "password": "adham2002"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/updateme": {
+      "put": {
+        "tags": [
+          "Logged User"
+        ],
+        "summary": "Update Logged User Data",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "email": "adham54732@gmail.com",
+                  "name": "Adham Ashraf"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users/deleteme": {
+      "put": {
+        "tags": [
+          "Logged User"
+        ],
+        "summary": "Update Logged User Data Copy",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": ""
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/reviews": {
+      "get": {
+        "tags": [
+          "Reviews"
+        ],
+        "summary": "Get List of reviews",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Reviews"
+        ],
+        "summary": "Create  Review",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "title": "this is a good product",
+                  "ratings": 2,
+                  "product": "66e820de422c2b84a2a742d4",
+                  "user": "67088847a05699adc4dd3b8c"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/reviews/670c0dbac6f89173cda0ef5b": {
+      "get": {
+        "tags": [
+          "Reviews"
+        ],
+        "summary": "Get Specific  Review",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/reviews/670ffbe62681d0e5d503db54": {
+      "put": {
+        "tags": [
+          "Reviews"
+        ],
+        "summary": "Update Specific Review",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "title": "not bad i think",
+                  "ratings": 5
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/reviews/671006f4bdd3fd0c6ca068e7": {
+      "delete": {
+        "tags": [
+          "Reviews"
+        ],
+        "summary": "delete Review",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/wishlist": {
+      "get": {
+        "tags": [
+          "WishList"
+        ],
+        "summary": "Get Loggeduser WishList",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "WishList"
+        ],
+        "summary": "Add Product To wishList",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "productId": "66def32151e816be5bdbea2a"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/wishlist/66def32151e816be5bdbea2a": {
+      "delete": {
+        "tags": [
+          "WishList"
+        ],
+        "summary": "Delete Product From WishList",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/address": {
+      "get": {
+        "tags": [
+          "Addresses"
+        ],
+        "summary": "Get Loggeduser Addresses",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Addresses"
+        ],
+        "summary": "Add Address",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "alias": "work",
+                  "details": "امام مكتبة عبدوا",
+                  "phone": "011453453423",
+                  "PostalCode": "الرمز البريدى"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/address/6713353ddfd443a9e3195d4b": {
+      "delete": {
+        "tags": [
+          "Addresses"
+        ],
+        "summary": "Delete addresss",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/coupons": {
+      "get": {
+        "tags": [
+          "Coupons"
+        ],
+        "summary": "Get List of Coupons",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/coupons/67134ed7afc4854866e35c3c": {
+      "get": {
+        "tags": [
+          "Coupons"
+        ],
+        "summary": "Get Specific Coupon",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Coupons"
+        ],
+        "summary": "Update Specific Brand",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "name": "adham ashraf",
+                  "expire": "03/10/2002",
+                  "discount": 10
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Coupons"
+        ],
+        "summary": "deleteCategory",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/coupons/": {
+      "post": {
+        "tags": [
+          "Coupons"
+        ],
+        "summary": "Create Coupon",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "name": "good",
+                  "expire": "03/10/2025",
+                  "discount": 50
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/products/66def32151e816be5bdbea2a/reviews": {
+      "get": {
+        "tags": [
+          "Products/Reviews"
+        ],
+        "summary": "Get List of reviews on specific Products",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/products/66def32151e816be5bdbea2a/reviews/670c2cf6511faf33168948bc": {
+      "get": {
+        "tags": [
+          "Products/Reviews"
+        ],
+        "summary": "Get A specific Review on specific Product",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/products/66e820de422c2b84a2a742d4/reviews": {
+      "post": {
+        "tags": [
+          "Products/Reviews"
+        ],
+        "summary": "Create Review in specific product",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "title": "this is a good product",
+                  "ratings": 4
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/cart": {
+      "post": {
+        "tags": [
+          "Cart"
+        ],
+        "summary": "Add Product to Cart",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "productId": "66def32151e816be5bdbea26",
+                  "color": "green"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Cart"
+        ],
+        "summary": "Get Logged in User Cart",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/cart/": {
+      "delete": {
+        "tags": [
+          "Cart"
+        ],
+        "summary": "Remove Specifc Cart Item",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/cart/66def32151e816be5bdbea26": {
+      "delete": {
+        "tags": [
+          "Cart"
+        ],
+        "summary": "Clear User Cart",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/cart/applycoupon": {
+      "put": {
+        "tags": [
+          "Cart"
+        ],
+        "summary": "Aply Coupon To user Cart",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "coupon": "good"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/cart/6714fc6119228ca73e6b3f3f": {
+      "put": {
+        "tags": [
+          "Cart"
+        ],
+        "summary": "Update Cart Item Quantity",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "quantity": 0
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/orders/67168b6ec979d4f8028d87b5": {
+      "post": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Create Cash Order",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "shippingAddress": {
+                    "details": "something",
+                    "phone": "01145134",
+                    "city": "noon bewnha",
+                    "postalCode": "something"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/orders/67168acb305eee14769692f8": {
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Get Specific Order",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/orders/": {
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Get All Orders",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/orders/67168acb305eee14769692f8/pay": {
+      "put": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Update Order Status to Paid",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "shippingAddress": {
+                    "details": "something",
+                    "phone": "01145134",
+                    "city": "noon bewnha",
+                    "postalCode": "something"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/orders/67168acb305eee14769692f8/deliver": {
+      "put": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Update Order Status to Deliverd",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "shippingAddress": {
+                    "details": "something",
+                    "phone": "01145134",
+                    "city": "noon bewnha",
+                    "postalCode": "something"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/orders/checkout-session/6716a507ace4dc490f2fb4b0": {
+      "get": {
+        "tags": [
+          "Orders"
+        ],
+        "summary": "Get Checkout Session",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    }
+  }
+}

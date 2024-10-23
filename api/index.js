@@ -1,4 +1,5 @@
 const dotenv = require("dotenv");
+const swaggerUi = require("swagger-ui-express");
 const path = require("path");
 // dotenv.config({ path: "../config.env" });
 dotenv.config({ path: path.resolve(__dirname, "../config.env") }); // Ensure correct path
@@ -9,6 +10,7 @@ const cors = require("cors");
 const compression = require("compression");
 
 const morgan = require("morgan");
+const swaggerDocument = require("../Docs/openapi.json");
 const ApiError = require("../utils/apiError");
 const globalError = require("../Middlewares/errorMiddleware");
 const dbConnection = require("../config/database");
@@ -25,7 +27,7 @@ app.use(cors());
 app.use(compression());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "../uploads")));
-
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
