@@ -10,14 +10,14 @@ const {
   filterOrdersForLoggedUser,
   updateOrderToDelivered,
   updateOrderToPaid,
-  getCheckoutSession,
+  checkoutSession,
 } = require("../services/orderService");
 
 router.use(authService.protect);
 router.get(
   "/checkout-session/:cartId",
   authService.allowedTo("user"),
-  getCheckoutSession
+  checkoutSession
 );
 router.route("/:cartId").post(authService.allowedTo("user"), createCashOrder);
 

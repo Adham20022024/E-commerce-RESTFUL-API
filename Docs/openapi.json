@@ -78,16 +78,7 @@
           "Categories"
         ],
         "summary": "getCategories",
-        "parameters": [
-          {
-            "name": "_vercel_jwt",
-            "in": "header",
-            "schema": {
-              "type": "string"
-            },
-            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIya0JZSUNHc1lYdmh6RXhZQk9XUzRqQXQiLCJpYXQiOjE3Mjk2NDEwMjcsIm93bmVySWQiOiJ0ZWFtX1NJMjM3UGNPOFk5M1BDZlpVcGppOFRucyIsImF1ZCI6ImUtY29tbWVyY2UtcmVzdC1mdWwtOWdyZnl5Mm8wLWFkaGFtcy1wcm9qZWN0cy1hYWJmZGVmNi52ZXJjZWwuYXBwIiwidXNlcm5hbWUiOiJhZGhhbTIwMDIyMDI0Iiwic3ViIjoic3NvLXByb3RlY3Rpb24ifQ.LbRHCT3rf4-GHGoggFjVvnczHNfCcQ_VvNAad9opdms"
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Successful response",
