@@ -1,0 +1,30 @@
+{
+  "separators.enabledSymbols": [
+    "Classes",
+    "Enums",
+    "Interfaces",
+    "Namespaces",
+    "Structs"
+  ],
+  "cSpell.words": ["uuidv"],
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#9d5b93",
+    "activityBar.background": "#9d5b93",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#a4ad72",
+    "activityBarBadge.foreground": "#15202b",
+    "commandCenter.border": "#e7e7e799",
+    "sash.hoverBorder": "#9d5b93",
+    "statusBar.background": "#7d4875",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#9d5b93",
+    "statusBarItem.remoteBackground": "#7d4875",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#7d4875",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#7d487599",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  },
+  "peacock.color": "#7d4875"
+}
