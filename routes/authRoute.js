@@ -1,4 +1,5 @@
 const express = require("express");
+const { sanitizeInput } = require("../utils/xssProtect");
 const {
   signupValidator,
   loginValidator,
@@ -13,7 +14,7 @@ const {
 } = require("../services/authService");
 
 const router = express.Router();
-router.post("/signup", signupValidator, signup);
+router.post("/signup", signupValidator, sanitizeInput, signup);
 
 router.post("/login", loginValidator, login);
 router.post("/forgetPassword", forgetPassword);
